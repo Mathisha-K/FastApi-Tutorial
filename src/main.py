@@ -1,8 +1,8 @@
-from typing import List, Set, Union
+from typing import List
 from fastapi import FastAPI
 from pydantic import BaseModel
 from faker import Faker
-import string
+import string 
 
 app = FastAPI()
 fake = Faker()
@@ -31,8 +31,15 @@ articles = [
         "author_id": "9112-7055-80HX-3539-4093-J3376",
         "article_title": "bound for duty",
         "article_content": "The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs!"
+    },
+    {
+        "created_date": "2001-02-01T02:00:00Z",
+        "author_id": "6735-4818-43R0-7408-0K74-16478",
+        "article_title": "the steel throne",
+        "article_content": "Bryan had made peace with himself and felt comfortable with the choices he made. This had made all the difference in the world."
     }
 ]
+
 class Article(BaseModel):
     created_date: str
     author_id: str
@@ -45,34 +52,23 @@ class Articles(BaseModel):
 @app.post("/items/{author_id}")
 async def add_item(articles: Articles): 
     response = []
-    return articles
-    """for article in articles:
+    
+    for article in articles.articles:
         title = string.capwords(article.article_title)
-        text = article.article_content.split()[:50]
+        text = article.article_content.split()
+
+        if len(text) > 50:
+            text = text[:50]
+            text = ' '.join(text) + "..."
+        else:
+            text = ' '.join(text)
     
         response.append(
         {
             "created_date": article.created_date,
             "author_name": fake.name(),
             "article_title": title,
-            "article_summary": ' '.join(text) + "..."
-        }
-        )
+            "article_summary": text
+        })
     
-    return response"""
-
-"""@app.get("/")
-async def read_root():
-    return {"message": "Hello World"}
-
-@app.get("/items/{author_id}")
-async def read_item(author_id: int):
-    return {"author_id": author_id}"""
-
-"""@app.delete("/items/{item_id}")
-async def del_item(item: Article):
-    return item
-
-@app.put("/items/{author_id}")
-async def update_item(author_id: int, article: Article):
-    return {"item_name": article.name, "item_id": author_id}"""
+    return response
