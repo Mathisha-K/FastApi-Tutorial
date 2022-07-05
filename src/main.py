@@ -50,10 +50,10 @@ class Articles(BaseModel):
     articles: List[Article]
 
 @app.post("/items/{author_id}")
-async def add_item(articles: Articles): 
+async def add_item(articles: list[Article]): 
     response = []
     
-    for article in articles.articles:
+    for article in articles:
         title = string.capwords(article.article_title)
         text = article.article_content.split()
 
