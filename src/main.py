@@ -46,9 +46,6 @@ class Article(BaseModel):
     article_title: str
     article_content: str
 
-class Articles(BaseModel):
-    articles: List[Article]
-
 @app.post("/items/{author_id}")
 async def add_item(articles: list[Article]): 
     response = []
