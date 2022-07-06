@@ -46,7 +46,7 @@ class Article(BaseModel):
     article_title: str
     article_content: str
 
-@app.post("/items/{article}")
+@app.post("/articles")
 async def add_item(articles: list[Article]): 
     response = []
     
