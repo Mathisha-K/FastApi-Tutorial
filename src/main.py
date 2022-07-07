@@ -1,8 +1,10 @@
 from typing import List
 from fastapi import FastAPI
-from pydantic import BaseModel
+
 from faker import Faker
-import string 
+import string
+
+from modes import Article 
 
 app = FastAPI()
 fake = Faker()
@@ -40,12 +42,11 @@ articles = [
     }
 ]
 
-class Article(BaseModel):
-    created_date: str
-    author_id: str
-    article_title: str
-    article_content: str
 
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+    
 @app.post("/articles")
 async def add_item(articles: list[Article]): 
     response = []
