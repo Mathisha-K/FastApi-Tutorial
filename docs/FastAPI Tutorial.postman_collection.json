@@ -1,0 +1,52 @@
+{
+	"info": {
+		"_postman_id": "4a8045b5-60c5-46f4-913e-4d455b4cde06",
+		"name": "FastAPI Tutorial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16020356"
+	},
+	"item": [
+		{
+			"name": "FastAPI Tutorial Test POST",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"jsonBody\", JSON.stringify(pm.iterationData.toObject()));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[[{{jsonBody}}]]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/articles",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"articles"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
