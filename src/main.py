@@ -4,7 +4,9 @@ from fastapi import FastAPI
 from faker import Faker
 import string
 
-from modes import Article 
+from modes import Articles
+from modes import Article
+
 
 app = FastAPI()
 fake = Faker()
@@ -47,6 +49,30 @@ articles = [
 def read_root():
     return {"Hello": "World"}
     
+"""@app.post("/articles")
+async def add_item(articles: Articles):
+    response = []
+    
+    for article in articles.articles:
+        title = string.capwords(article.article_title)
+        text = article.article_content.split()
+
+        if len(text) > 50:
+            text = text[:50]
+            text = ' '.join(text) + "..."
+        else:
+            text = ' '.join(text)
+    
+        response.append(
+        {
+            "created_date": article.created_date,
+            "author_name": fake.name(),
+            "article_title": title,
+            "article_summary": text
+        })
+    
+    return response"""
+
 @app.post("/articles")
 async def add_item(articles: list[Article]): 
     response = []

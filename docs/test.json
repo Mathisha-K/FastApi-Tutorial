@@ -1,0 +1,24 @@
+[
+    {
+        "articles": [
+            {
+             "article":
+                {
+                    "created_date": "2019-04-09T12:00:00Z",
+                    "author_id": "4421-45V2-1909-2404-0143-J9936",
+                    "article_title": "the lord of the nameless",
+                    "article_content": "But I must explain to you how all this mistaken idea of denouncing..."
+                }
+            },
+            {
+             "article":
+                {
+                    "created_date": "2022-03-01T01:00:00Z",
+                    "author_id": "090W-73W4-4407-3902-352P-193W9",
+                    "article_title": "avian shadow",
+                    "article_content": "The European languages are members of the same family..."
+                }
+            }
+        ]
+    }
+]
