@@ -5,10 +5,14 @@ name = "pypi"
 
 [packages]
 fastapi = "*"
-uvicorn = {extras = ["standard"], version = "*"}
 faker = "*"
+gunicorn = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.9"
+
+[packages.uvicorn]
+extras = [ "standard",]
+version = "*"
